@@ -1,0 +1,7 @@
+{
+  "name": "prueba-contenidos-ut2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
