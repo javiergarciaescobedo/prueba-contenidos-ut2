@@ -1,0 +1,26 @@
+{
+  "tareas": [
+    {
+      "id": "1",
+      "titulo": "Aprender Ionic",
+      "completada": true
+    },
+    {
+      "id": "2",
+      "titulo": "Conectar con API REST",
+      "completada": false
+    },
+    {
+      "id": "3",
+      "titulo": "Hacer el reto de la UT5-2",
+      "completada": false
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "Javier",
+      "rol": "admin"
+    }
+  ]
+}

@@ -35,3 +35,34 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+ion-button {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+
+  /* Estados para hover/click (buena práctica) */
+  --background-hover: var(--ion-color-primary-shade);
+  --background-activated: var(--ion-color-primary-shade);
+  --background-focused: var(--ion-color-primary-tint);
+}
+
+ion-item {
+  --background: var(--ion-background-color-step-700);
+  // Para que se vea bien el sombreado dentro del ion-card
+  --inner-border-width: 0;
+}
+
+ion-item.completada {
+  /* Fondo verde oscuro (tu color primario) */
+  --background: var(--ion-background-color-step-300);
+}
+
+/* Cambia el color de la etiqueta flotante cuando el input está enfocado */
+ion-input.has-focus .label-text {
+  color: var(--ion-color-secondary); /* Usa el color secundario, por ejemplo */
+}
+
+/* Opcional: También puedes cambiar el color de la línea inferior */
+ion-input.has-focus {
+  --highlight-color-focused: var(--ion-color-secondary);
+}

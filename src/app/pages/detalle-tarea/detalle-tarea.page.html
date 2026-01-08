@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Botón para volver atrás automáticamente -->
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle de Tarea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <!-- Usamos *ngIf para comprobar si la tarea existe -->
+  <div *ngIf="tarea; else noEncontrada">
+    <h1>{{ tarea.titulo }}</h1>
+    
+    <p>
+      Estado: 
+      <!-- Mostramos un badge de color según si está completada -->
+      <ion-badge [color]="tarea.completada ? 'success' : 'warning'">
+        {{ tarea.completada ? 'Completada' : 'Pendiente' }}
+      </ion-badge>
+    </p>
+    
+    <p><small>ID: {{ tarea.id }}</small></p>
+  </div>
+
+  <!-- Esta plantilla se muestra si 'tarea' es undefined (el 'else' del ngIf) -->
+  <ng-template #noEncontrada>
+    <div class="ion-text-center">
+      <p>Tarea no encontrada.</p>
+      <ion-button routerLink="/home">Volver al listado</ion-button>
+    </div>
+  </ng-template>
+
+</ion-content>

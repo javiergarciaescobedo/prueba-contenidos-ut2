@@ -1,16 +1,18 @@
 <ion-card>
-  <ion-item>
+  <ion-item [class.completada]="tarea.completada">
     <ion-checkbox
       slot="start"
-      [checked]="tarea.completada">
+      [checked]="tarea.completada"
+      (click)="cambiarEstado()">
     </ion-checkbox>
+
+    <ion-input 
+      [(ngModel)]="tarea.titulo" 
+      (ionBlur)="guardarTitulo()">
+    </ion-input>
     
-    <ion-label [class.tachado]="tarea.completada">
-      {{ tarea.titulo }}
-    </ion-label>
-    
-    <ion-button (click)="mostrarDetalles()" slot="end">
-      Ver
+    <ion-button fill="clear" color="danger" slot="end" (click)="borrarClick($event)">
+      <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
     </ion-button>
   </ion-item>
 </ion-card>

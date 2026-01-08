@@ -1,26 +1,64 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Lista de Tareas
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/ajustes">
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
+    <ion-toolbar color="primary">
       <ion-title size="large">Lista de Tareas</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <!-- FORMULARIO PARA AÑADIR TAREAS -->
+  <ion-list>
+    <ion-item>
+      <ion-input
+        label="Nueva Tarea"
+        label-placement="floating"
+        placeholder="¿Qué necesitas hacer?"
+        [(ngModel)]="nuevaTarea.titulo"> <!-- Enlazado a la propiedad 'titulo' del objeto -->
+      </ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="agregarTarea()" class="ion-margin-top ion-margin-bottom">
+    Añadir Tarea
+  </ion-button>
 
   <div *ngIf="listaDeTareas.length === 0" class="mensaje-vacio">
     <p>¡Enhorabuena!</p>
     <p>No tienes tareas pendientes.</p>
   </div>
 
-  <!-- Usamos *ngFor para crear un <app-task-item> por cada 'tarea' en el array 'listaDeTareas' -->
-  <app-task-item
-    *ngFor="let tarea of listaDeTareas"
-    [tarea]="tarea">
-  </app-task-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let tarea of listaDeTareas" size="12" size-md="6" size-lg="3">
+<!--         <app-task-item 
+          [tarea]="tarea"
+          (onEstadoChange)="cambiarEstado(tarea)"
+          (onTituloChange)="guardarCambioTitulo(tarea)" 
+          (onBorrar)="borrarTarea(tarea.id)"
+          [routerLink]="['/detalle-tarea', tarea.id]"
+          style="cursor: pointer">
+        </app-task-item> -->
+        <app-task-item 
+          [tarea]="tarea"
+          (onEstadoChange)="cambiarEstado(tarea)"
+          (onTituloChange)="guardarCambioTitulo(tarea)" 
+          (onBorrar)="borrarTarea(tarea.id)"
+          style="cursor: pointer">
+        </app-task-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
