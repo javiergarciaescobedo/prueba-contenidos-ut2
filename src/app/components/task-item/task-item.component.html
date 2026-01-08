@@ -2,8 +2,8 @@
   <ion-item [class.completada]="tarea.completada">
     <ion-checkbox
       slot="start"
-      [checked]="tarea.completada"
-      (click)="cambiarEstado()">
+      [(ngModel)]="tarea.completada" 
+      (ionChange)="cambiarEstado()">
     </ion-checkbox>
 
     <ion-input 

@@ -133,5 +133,5 @@ export class HomePage {
       console.error('Error al guardar título:', error);
     }
   }
-  
+
 }
